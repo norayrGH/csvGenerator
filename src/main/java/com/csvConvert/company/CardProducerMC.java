@@ -20,22 +20,20 @@ import java.util.List;
 public class CardProducerMC {
 
     @XmlElement
-    @CsvField(pos = 14)
+    @CsvField(pos = 1)
     private String cardProducerCode;
     @XmlElement(name = "counters")
     private PeriodicCounters periodicCounters;
-    @XmlElementWrapper(name = "cardTemplates")
-    @XmlElement(name = "cardTemplate")
-    @CsvSubRecordList(pos = 15, records = {@Record(prefix = "CT", objectType = CardTemplateMC.class)})
-    private List<CardTemplateMC> cardTemplates;
+
+    //@CsvSubRecordList(pos = 15, records = {@Record(prefix = "CT", objectType = CardTemplateMC.class)})
+    //private List<CardTemplateMC> cardTemplates;
 
     public CardProducerMC() {
     }
 
-    public CardProducerMC(String cardProducerCode, PeriodicCounters periodicCounters, List<CardTemplateMC> cardTemplates) {
+    public CardProducerMC(String cardProducerCode, PeriodicCounters periodicCounters) {
         this.cardProducerCode = cardProducerCode;
         this.periodicCounters = periodicCounters;
-        this.cardTemplates = cardTemplates;
     }
 
     public String getCardProducerCode() {
@@ -54,11 +52,5 @@ public class CardProducerMC {
         this.periodicCounters = periodicCounters;
     }
 
-    public List<CardTemplateMC> getCardTemplates() {
-        return cardTemplates;
-    }
 
-    public void setCardTemplates(List<CardTemplateMC> cardTemplates) {
-        this.cardTemplates = cardTemplates;
-    }
 }

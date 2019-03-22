@@ -73,9 +73,9 @@ public class Main {
         }};
         final List<CardProducerMC> cardProducerMCS = new ArrayList<CardProducerMC>() {{
 
-            add(new CardProducerMC("cardProducerCode", periodicCounter1, cardTemplateMCS));
-            add(new CardProducerMC("cardProducerCode", periodicCounter2, cardTemplateMCS));
-            add(new CardProducerMC("cardProducerCode", periodicCounter3, cardTemplateMCS));
+            add(new CardProducerMC("cardProducerCode", periodicCounter1));
+            add(new CardProducerMC("cardProducerCode", periodicCounter2));
+            add(new CardProducerMC("cardProducerCode", periodicCounter3));
         }};
 
 
@@ -94,42 +94,56 @@ public class Main {
 
         }};
 
-        /*RenewalCounter renewalCounter = new RenewalCounter("extractReference",
+        RenewalCounter renewalCounter = new RenewalCounter("extractReference",
                 "cardProducer", "issuer",
                 "details", 15, "periodicity",
                 "outputFormat", issuerMCS, periods);
         CsvConfiguration csvConfiguration = new CsvConfiguration();
-        Serializer serializer = CsvIOFactory.createFactory(csvConfiguration,RenewalCounter.class).createSerializer();
-        File file = new File("../csvFile.txt");
-        try {
+        //Serializer serializer = CsvIOFactory.createFactory(csvConfiguration,RenewalCounter.class).createSerializer();
+        //File file = new File("../csvFile.txt");
+        //try {
 
-            BufferedWriter bufferedWriter = Files.newBufferedWriter(file.toPath(), Charset.forName("iso-8859-1"));
-            serializer.open(bufferedWriter);
-            serializer.write(renewalCounter);
+        //    BufferedWriter bufferedWriter = Files.newBufferedWriter(file.toPath(), Charset.forName("iso-8859-1"));
+        //    serializer.open(bufferedWriter);
+        //    serializer.write(renewalCounter);
 
-            serializer.close(true);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
-        File file = new File("../csvFile.txt");
-        Serializer serializer = CsvIOFactory.createFactory(TestClass.class,  TestClass2.class).createSerializer();
-        TestClass1 testClass1 = new TestClass1(1,"HTC");
-        TestClass2 testClass2 = new TestClass2(512,"HTC500");
-        TestClass testClass = new TestClass();
+        //    serializer.close(true);
+        //} catch (IOException e) {
+        //    e.printStackTrace();
+        //}
 
-    testClass.setTestClass1(testClass1);
-    testClass.setTestClass2(testClass2);
+      File file = new File("../csvFile.txt");
+      Serializer serializer = CsvIOFactory.createFactory(TestClass.class/*,TestClass1.class,TestClass2.class*/).createSerializer();
+      TestClass1 testClass1 = new TestClass1(1,"HTC");
 
-        try {
+      final List<String> strings = new ArrayList<String>(){{
+          add("HTC501");
+          add( "HTC502");
+          add( "HTC503");
 
-            serializer.open(new FileWriter(file));
-            serializer.write(testClass);
-            serializer.close(true);
+      }};
+      List<TestClass2>testClass2s = new ArrayList<TestClass2>(){{
+          add(new TestClass2(512,strings));
+          add(new TestClass2(513,strings));
+          add(new TestClass2(514,strings));
 
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+        }};
+      TestClass testClass = new TestClass();
+
+      testClass.setTestClass1(testClass1);
+
+      testClass.setTestClass2(testClass2s);
+
+      try {
+
+          serializer.open(new FileWriter(file));
+          serializer.write(testClass);
+          serializer.close(true);
+
+      } catch (IOException e) {
+          // TODO Auto-generated catch block
+          e.printStackTrace();
+      }
 
     }
 

@@ -16,14 +16,14 @@ import java.util.List;
 public class IssuerMC {
 
     @XmlElement
-    @CsvField(pos = 11 )
+    @CsvField(pos = 1 )
     private Long issuerId;
     @XmlElement
-    @CsvField(pos = 12)
+    @CsvField(pos = 2)
     private String issuerName;
     @XmlElementWrapper(name = "cardProducers")
     @XmlElement(name = "cardProducer")
-    @CsvSubRecordList(pos = 13, records = {@Record(prefix = "CP", objectType = CardProducerMC.class)})
+    @CsvSubRecordList(pos = 3, records = {@Record(prefix = "CP", objectType = CardProducerMC.class)})
     private List<CardProducerMC> cardProducers;
 
     public IssuerMC() {

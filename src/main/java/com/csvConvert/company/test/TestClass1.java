@@ -5,17 +5,18 @@ package com.csvConvert.company.test;
 import net.sf.jsefa.csv.annotation.CsvDataType;
 import net.sf.jsefa.csv.annotation.CsvField;
 
+import javax.persistence.Embeddable;
 import java.io.Serializable;
-
-@CsvDataType(defaultPrefix = "TC1")
+@Embeddable
+@CsvDataType(defaultPrefix = "T1")
 public class TestClass1 implements Serializable {
 
 private static final long serialVersionUID = 371968159365574089L;
 
-@CsvField(pos = 1)
+@CsvField(pos = 0)
 private int id;
 
-@CsvField(pos = 2)
+@CsvField(pos = 1)
 private String Name;
 
 

@@ -1,14 +1,20 @@
 package com.csvConvert.company.test;
 
+import com.csvConvert.company.CardProducerMC;
 import net.sf.jsefa.csv.annotation.CsvDataType;
 import net.sf.jsefa.csv.annotation.CsvField;
+import net.sf.jsefa.csv.annotation.CsvSubRecord;
+import net.sf.jsefa.csv.annotation.CsvSubRecordList;
+import net.sf.jsefa.rbf.annotation.Record;
 
-@CsvDataType(defaultPrefix = "TC")
+import java.util.List;
+
+@CsvDataType(defaultPrefix = "T0")
 public class TestClass {
-    @CsvField( pos = 1)
+    @CsvField( pos = 0)
     private TestClass1 testClass1;
-    @CsvField ( pos = 2)
-    private TestClass2 testClass2;
+    @CsvSubRecordList(pos = 1, records = @Record(prefix = "T2"))
+    private List<TestClass2> testClass2;
 
     // getter setter methods
 
@@ -16,7 +22,9 @@ public class TestClass {
     public TestClass() {
     }
 
-    public TestClass(TestClass1 testClass1, TestClass2 testClass2) {
+
+
+    public TestClass(TestClass1 testClass1, List<TestClass2> testClass2) {
         this.testClass1 = testClass1;
         this.testClass2 = testClass2;
     }
@@ -29,11 +37,11 @@ public class TestClass {
         this.testClass1 = testClass1;
     }
 
-    public TestClass2 getTestClass2() {
+    public List<TestClass2> getTestClass2() {
         return testClass2;
     }
 
-    public void setTestClass2(TestClass2 testClass2) {
+    public void setTestClass2(List<TestClass2> testClass2) {
         this.testClass2 = testClass2;
     }
 }

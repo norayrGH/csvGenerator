@@ -3,19 +3,21 @@ package com.csvConvert.company.test;
 import net.sf.jsefa.csv.annotation.CsvDataType;
 import net.sf.jsefa.csv.annotation.CsvField;
 
+import javax.persistence.Embeddable;
 import java.io.Serializable;
+import java.util.List;
 
-
-@CsvDataType(defaultPrefix = "TC2")
+@Embeddable
+@CsvDataType(defaultPrefix = "T2")
 public class TestClass2 implements Serializable {
 
 private static final long serialVersionUID = 371968159365574089L;
 
-@CsvField(pos = 3)
+@CsvField(pos = 2)
 private int orderno;
 
-@CsvField(pos = 4)
-private String orderName;
+@CsvField(pos = 3)
+private List<String> orderName;
 
 // getter setter methods
 
@@ -23,7 +25,7 @@ private String orderName;
     public TestClass2() {
     }
 
-    public TestClass2(int orderno, String orderName) {
+    public TestClass2(int orderno, List<String> orderName) {
         this.orderno = orderno;
         this.orderName = orderName;
     }
@@ -40,11 +42,12 @@ private String orderName;
         this.orderno = orderno;
     }
 
-    public String getOrderName() {
+    public List<String> getOrderName() {
         return orderName;
     }
 
-    public void setOrderName(String orderName) {
+    public void setOrderName(List<String> orderName) {
         this.orderName = orderName;
     }
+
 }
