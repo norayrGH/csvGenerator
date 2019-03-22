@@ -7,7 +7,6 @@ import javax.persistence.Embeddable;
 import java.io.Serializable;
 import java.util.List;
 
-@Embeddable
 @CsvDataType(defaultPrefix = "T2")
 public class TestClass2 implements Serializable {
 

@@ -13,7 +13,7 @@ import java.util.List;
 public class TestClass {
     @CsvField( pos = 0)
     private TestClass1 testClass1;
-    @CsvSubRecordList(pos = 1, records = @Record(prefix = "T2"))
+    @CsvSubRecordList(pos = 1, records = @Record(prefix = ""))
     private List<TestClass2> testClass2;
 
     // getter setter methods

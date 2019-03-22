@@ -7,7 +7,6 @@ import net.sf.jsefa.csv.annotation.CsvField;
 
 import javax.persistence.Embeddable;
 import java.io.Serializable;
-@Embeddable
 @CsvDataType(defaultPrefix = "T1")
 public class TestClass1 implements Serializable {
 
