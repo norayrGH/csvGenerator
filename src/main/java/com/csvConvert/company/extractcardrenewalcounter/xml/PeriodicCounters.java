@@ -22,6 +22,7 @@ public class PeriodicCounters {
     @XmlTransient
     private Map<String, Long> periodsMap;
 
+
     public PeriodicCounters() {
     }
 

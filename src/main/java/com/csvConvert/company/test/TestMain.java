@@ -139,15 +139,17 @@ public class TestMain {
 
         }};
 
-        final PeriodicCounters periodicCounter1 = new PeriodicCounters(periodicCounterList, stringLongMap);
-        final PeriodicCounters periodicCounter2 = new PeriodicCounters(periodicCounterList, stringLongMap);
-        final PeriodicCounters periodicCounter3 = new PeriodicCounters(periodicCounterList, stringLongMap);
-
-
+        PeriodicCounters periodicCounter1 = new PeriodicCounters(periodicCounterList, stringLongMap);
+        PeriodicCounters periodicCounter2 = new PeriodicCounters(periodicCounterList, stringLongMap);
+        PeriodicCounters periodicCounter3 = new PeriodicCounters(periodicCounterList, stringLongMap);
+       ArtworkMC artworkMC1= new ArtworkMC("artworkName1");
+       artworkMC1.getPeriodicCounters().setPeriodicCounterList(periodicCounterList);
+       ArtworkMC artworkMC2= new ArtworkMC("artworkName2");
+        artworkMC2.getPeriodicCounters().setPeriodicCounterList(periodicCounterList);
+       ArtworkMC artworkMC3= new ArtworkMC("artworkName3");
+        artworkMC3.getPeriodicCounters().setPeriodicCounterList(periodicCounterList);
         final List<ArtworkMC> artworkMCS = new ArrayList<ArtworkMC>() {{
-            add(new ArtworkMC("artworkName1").getPeriodicCounters().setPeriodicCounterList(periodicCounterList));
-            add(new ArtworkMC("artworkName2").getPeriodicCounters().setPeriodicCounterList(periodicCounterList));
-            add(new ArtworkMC("artworkName3").getPeriodicCounters().setPeriodicCounterList(periodicCounterList));
+
 
         }};
 
